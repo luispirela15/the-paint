@@ -84,6 +84,11 @@ button{font-family:inherit;cursor:pointer}
 /* PICK'EM SAVE */
 .pick.sel{border-color:var(--c);background:color-mix(in srgb,var(--c) 18%,#0000004d)}
 .pick.sel span:after{content:"  ✓";color:var(--c)}
+.who{margin:26px 0 6px;border:1px solid var(--line);border-left:3px solid var(--or);background:var(--p1);padding:18px 20px;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.who label{font:600 11px 'IBM Plex Mono',ui-monospace,monospace;letter-spacing:.16em;color:var(--or);text-transform:uppercase}
+.who select{flex:1;min-width:220px;background:#0c0c0c;color:var(--tx);border:1px solid var(--line);padding:12px 14px;font:600 15px Montserrat,sans-serif;border-radius:0}
+.who small{width:100%;color:var(--mu);font-size:13px}
+.who.err{border-left-color:#ff5a4f}
 .savebar{position:sticky;bottom:14px;z-index:15;margin-top:22px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;background:#141414f2;backdrop-filter:blur(8px);border:1px solid var(--or);padding:14px 18px}
 .savebar span{font:500 13px 'IBM Plex Mono',ui-monospace,monospace;letter-spacing:.08em}
 .savebar span b{color:var(--or);font-size:16px}
@@ -285,12 +290,12 @@ h1.brandh em{background:linear-gradient(90deg,#FFB067,#FF7A2F 45%,#E8501A);-webk
 .tagline:after{content:"";flex:0 0 60px;height:1.5px;background:var(--or)}
 .lead{font-size:clamp(16px,1.6vw,20px);color:#bdb7ae;max-width:620px;font-weight:400}
 .cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:36px}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);margin-top:60px;border-top:1px solid var(--line);max-width:760px}
-.stats div{padding:18px 18px 0 0}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:60px;max-width:820px;position:relative;z-index:2}
+.stats div{padding:20px 20px 22px;background:rgba(14,10,8,.92);border:1px solid var(--line);border-top:2px solid var(--or);backdrop-filter:blur(6px)}
 .stats small{font:400 11px 'IBM Plex Mono',ui-monospace,monospace;letter-spacing:.16em;color:var(--mu);text-transform:uppercase}
 .stats b{display:block;font-family:Anton,Impact,'Arial Narrow',sans-serif;font-weight:400;font-size:clamp(30px,3.6vw,44px);line-height:1;letter-spacing:.01em;margin-top:10px;background:linear-gradient(90deg,#FFB067,#FF7A2F 55%,#E8501A);-webkit-background-clip:text;background-clip:text;color:transparent;white-space:nowrap}
 .stats em{display:block;font-style:normal;font-weight:600;font-size:14px;color:var(--tx);margin-top:8px;line-height:1.35}
-@media(max-width:620px){.stats{grid-template-columns:1fr 1fr}.stats div:last-child{grid-column:span 2}.stats b{font-size:30px}.stats em{font-size:13px}.tagline:after{display:none}.stats div{min-width:0}}
+@media(max-width:620px){.stats{grid-template-columns:1fr 1fr;gap:8px}.stats div{padding:16px 14px 18px}.stats div:last-child{grid-column:span 2}.stats b{font-size:30px}.stats em{font-size:13px}.tagline:after{display:none}.stats div{min-width:0}}
 
 /* INDEX PANELS (vertical) */
 .panels{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--line)}
@@ -485,6 +490,41 @@ textarea:focus{outline:none;border-color:var(--or)}
 .step2{display:none}
 .box.s2 .step1{display:none}.box.s2 .step2{display:block}
 .back{background:none;border:0;color:var(--mu);font:400 11px 'IBM Plex Mono',ui-monospace,monospace;letter-spacing:.16em;margin-top:18px;text-transform:uppercase}
+
+/* PREMIOS / TRANSACCIÓN / ESPECIAL */
+.awards{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:18px}
+@media(max-width:1100px){.awards{grid-template-columns:repeat(2,1fr)}.aw:last-child{grid-column:span 2}}
+@media(max-width:560px){.awards{grid-template-columns:1fr}.aw:last-child{grid-column:auto}}
+.aw{background:var(--p1);padding:22px;display:flex;flex-direction:column;gap:6px}
+.aw .ic{font-size:30px;line-height:1}
+.aw small{font:600 11px 'IBM Plex Mono',ui-monospace,monospace;letter-spacing:.16em;color:var(--or);text-transform:uppercase}
+.aw b{font-weight:800;font-size:20px;letter-spacing:-.01em;line-height:1.15}
+.aw .big{font-family:'Anton',sans-serif;font-size:40px;line-height:1;color:var(--or);letter-spacing:.01em}
+.aw .big i{display:block;font:500 10px 'IBM Plex Mono',ui-monospace,monospace;font-style:normal;letter-spacing:.14em;color:var(--mu);margin-top:6px}
+.aw .sc{font:500 12px 'IBM Plex Mono',ui-monospace,monospace;color:var(--mu)}
+.aw p{color:#cfc9c0;font-size:15px;margin-top:4px}
+.trx{border:1px solid var(--line);background:radial-gradient(80% 140% at 100% 0%,#3a1606,var(--p1) 60%);padding:clamp(24px,4vw,44px);display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;margin-top:18px}
+@media(max-width:640px){.trx{grid-template-columns:1fr}}
+.trx .mv{font-family:'Anton',sans-serif;font-size:clamp(28px,4.4vw,48px);line-height:1;text-transform:uppercase}
+.trx .mv span{display:block;font:600 11px 'IBM Plex Mono',ui-monospace,monospace;letter-spacing:.16em;color:var(--mu);margin-top:10px}
+.trx .mv em{font-style:normal;color:var(--or)}
+.trx p{color:#cfc9c0;max-width:560px}
+.trx .tst{display:flex;gap:22px;flex-wrap:wrap;margin-top:14px}
+.trx .tst div{font:500 11px 'IBM Plex Mono',ui-monospace,monospace;letter-spacing:.12em;color:var(--mu);text-transform:uppercase}
+.trx .tst b{display:block;font-family:'Anton',sans-serif;font-size:30px;color:var(--or);letter-spacing:.01em}
+.trk{border:1px solid var(--line);background:linear-gradient(135deg,#2a0f04,var(--p1) 55%);padding:clamp(22px,4vw,40px);display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:center;margin-top:18px}
+@media(max-width:640px){.trk{grid-template-columns:1fr}}
+.disc{width:220px;height:220px;border-radius:50%;display:block;box-shadow:0 20px 50px rgba(232,80,26,.3)}
+@media(max-width:640px){.disc{width:240px;height:240px;margin:0 auto}}
+.disc.spin{animation:spin 3.5s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.trk h3{font-family:'Anton',sans-serif;font-size:clamp(34px,5vw,58px);line-height:1;text-transform:uppercase;letter-spacing:.01em}
+.trk .by{font:500 12px 'IBM Plex Mono',ui-monospace,monospace;letter-spacing:.14em;color:var(--or);text-transform:uppercase;margin-top:8px}
+.trk p{color:#cfc9c0;margin:14px 0 18px;max-width:560px}
+.trk .ask{font-size:14px;color:var(--mu);margin:18px 0 12px}
+.trk audio{width:100%;max-width:520px;filter:invert(.92) hue-rotate(180deg) saturate(1.4)}
+.motw .stat{font-weight:900;font-size:clamp(56px,9vw,110px);letter-spacing:-.04em;line-height:.95;color:var(--or)}
+.motw .stat small{display:block;font:500 12px 'IBM Plex Mono',ui-monospace,monospace;letter-spacing:.16em;color:var(--mu);margin-top:8px}
 </style>
 </head>
 <body>
@@ -534,11 +574,6 @@ textarea:focus{outline:none;border-color:var(--or)}
       <a class="btn" href="#brackets">Ver Brackets →</a>
       <a class="btn ghost" href="#pickem">Haz tus picks</a>
     </div>
-    <div class="stats">
-      <div><small>Líder</small><b id="s-lead">—</b><em id="s-lead-n"></em></div>
-      <div><small>Más PF</small><b id="s-best">—</b><em id="s-best-n"></em></div>
-      <div><small>Duelo de la semana</small><b id="s-low">—</b><em id="s-low-n"></em></div>
-    </div>
   </div>
 </section>
 
@@ -559,13 +594,28 @@ textarea:focus{outline:none;border-color:var(--or)}
   <div class="motw" id="motw"></div>
 </section>
 
+<!-- PREMIOS DE LA SEMANA -->
+<section id="premios">
+  <div class="kick" id="aw-k">Premios de la semana</div>
+  <h2>Los premios <em>de la semana.</em></h2>
+  <p class="sub">Lo mejor, lo peor y lo más doloroso de la semana que cerró. Nadie se salva.</p>
+  <div class="awards" id="awards"></div>
+</section>
+
+<!-- TRANSACCIÓN DE LA SEMANA -->
+<section id="trx-sec">
+  <div class="kick">Transacción de la semana</div>
+  <h2>El movimiento <em>de la semana.</em></h2>
+  <div class="trx" id="trx"></div>
+</section>
+
 <!-- 01 STANDINGS -->
 <section id="posiciones">
   <div class="kick">01 · Standings</div>
   <h2>Standings, <em>así va la liga.</em></h2>
-  <p class="sub">Tabla general después de la Semana 2. <b style="color:var(--tx)">VT1</b> = victorias en Tier 1. Desempate: récord › VT1 › frente a frente › PF.</p>
+  <p class="sub">Tabla general después de la Semana 3. <b style="color:var(--tx)">VT1</b> = victorias en Tier 1. Desempate: récord › VT1 › frente a frente › PF.</p>
   <div class="tbl"><table>
-    <thead><tr><th>#</th><th>Equipo</th><th class="hide-s">Tier S3</th><th class="num">Récord</th><th class="num hide-m">VT1</th><th class="num">PF</th><th class="num hide-m">PA</th><th class="num hide-m">Playoff %</th><th class="num">Racha</th></tr></thead>
+    <thead><tr><th>#</th><th>Equipo</th><th class="hide-s">Tier S4</th><th class="num">Récord</th><th class="num hide-m">VT1</th><th class="num">PF</th><th class="num hide-m">PA</th><th class="num hide-m">Playoff %</th><th class="num">Racha</th></tr></thead>
     <tbody id="stand"></tbody>
   </table></div>
 
@@ -575,7 +625,7 @@ textarea:focus{outline:none;border-color:var(--or)}
 
 <!-- BRACKETS -->
 <section id="brackets">
-  <div class="kick">Week 3 · Brackets oficiales</div>
+  <div class="kick">Week 4 · Brackets oficiales</div>
   <h2>Sube o baja. <em>No excuses.</em></h2>
   <p class="sub">Escalera dinámica: los ganadores del Tier 1 se quedan en la Élite, los perdedores bajan. Los ganadores del Tier 2 suben.</p>
   <div class="tiers" id="tiers"></div>
@@ -597,7 +647,7 @@ textarea:focus{outline:none;border-color:var(--or)}
 <section id="ogs">
   <div class="kick">Los colados de la liga</div>
   <h2>Fotos <em>sin contexto</em></h2>
-  <p class="sub">Estas fotos no tienen ningún tipo de contexto. Simplemente son leyendas que estuvieron aquí con nosotros y que, semana a semana, vamos a recordar.</p>
+  <p class="sub">Estas fotos no tienen ningún tipo de contexto. No todos son leyendas: simplemente son participantes que en algún momento pasaron por esta liga y que, semana a semana, vamos a recordar.</p>
   <div class="carhead">
     <span class="count"><b id="og-i">01</b> / <span id="og-n">00</span></span>
     <div class="arrows"><button id="ogprev" aria-label="Anterior">←</button><button id="ognext" aria-label="Siguiente">→</button></div>
@@ -613,19 +663,26 @@ textarea:focus{outline:none;border-color:var(--or)}
   <div class="car" id="roycar"></div>
 </section>
 
+<!-- EDICIÓN ESPECIAL -->
+<section id="especial">
+  <div class="kick" id="esp-k">Edición especial</div>
+  <h2>Edición <em>especial.</em></h2>
+  <div class="trk" id="track"></div>
+</section>
+
 <!-- HIGHLIGHTS -->
 <section id="highlights">
   <div class="kick" id="hl-k">Highlights · La liga en la cancha</div>
   <h2>Highlights <em>de los panas.</em></h2>
-  <p class="sub">Las mejores jugadas de la liga en la cancha. Fotos y videos, sin filtro y sin piedad. <b style="color:var(--tx)">Cambian cada semana.</b></p>
+  <p class="sub">Las mejores jugadas de la liga en la cancha. Fotos y videos, sin filtro y sin piedad. <b style="color:var(--tx)">Cada semana se suman nuevos; los más recientes van primero.</b></p>
   <div class="mgrid" id="mgrid"></div>
 </section>
 
 <!-- 02 CALENDARIO -->
 <section id="calendario">
-  <div class="kick">02 · Schedule · Week 3</div>
+  <div class="kick">02 · Schedule · Week 4</div>
   <h2>Más juegos, <em>more points.</em></h2>
-  <p class="sub">54 juegos esta semana. El martes no hay juegos por el Día de Elecciones. Las noches en naranja tienen pocos juegos: ahí es donde se gana con streaming. 18 equipos juegan 4 veces, 12 juegan 3.</p>
+  <p class="sub">51 juegos esta semana. El jueves (4 juegos), el sábado (5) y el martes (6) son las noches flojas: ahí es donde se gana con streaming. 14 equipos juegan 4 veces, 14 juegan 3 y 2 solo juegan 2.</p>
   <div class="days" id="days"></div>
   <div class="tbl"><table class="sched short" id="schedT">
     <thead><tr><th style="text-align:left;padding-left:16px">Equipo</th><th>L</th><th>M</th><th>X</th><th>J</th><th>V</th><th>S</th><th>D</th><th>GP</th></tr></thead>
@@ -671,15 +728,16 @@ textarea:focus{outline:none;border-color:var(--or)}
   <div class="kick" style="margin-top:50px">Standings NBA</div>
   <div class="confs" id="confs"></div>
   <button class="btn ghost" id="confmore" style="width:100%;justify-content:center;margin-top:-1px">Ver los 15 equipos ↓</button>
-  <p class="stamp" style="margin-top:14px">Fuente: <b>Basketball-Reference y ESPN · actualizado el martes 3 de noviembre</b></p>
+  <p class="stamp" style="margin-top:14px">Fuente: <b>ESPN · actualizado el lunes 9 de noviembre</b></p>
 </section>
 
 <!-- 04 PICK'EM -->
 <section id="pickem">
-  <div class="kick">04 · Pick'em · Week 3</div>
+  <div class="kick">04 · Pick'em · Week 4</div>
   <h2>¿Quién gana <em>this week?</em></h2>
-  <p class="sub">Escoge un ganador en cada uno de los 8 duelos y dale a <b style="color:var(--tx)">Guardar picks</b>. Una vez guardados no hay vuelta atrás. Después de guardar vas a ver en vivo cómo votó el resto de la liga, y en la próxima edición sale aquí cuántos acertaron.</p>
+  <p class="sub">Escoge tu nombre, un ganador en cada uno de los 8 duelos y dale a <b style="color:var(--tx)">Guardar picks</b>. <b style="color:var(--tx)">Un voto por manager:</b> cuando guardes, tu nombre queda bloqueado hasta la próxima semana. Después vas a ver en vivo cómo votó el resto de la liga, y en la próxima edición sale quién acertó más.</p>
   <div id="lastpicks"></div>
+  <div class="who" id="who"><label for="whosel">¿Quién eres?</label><select id="whosel"><option value="">Escoge tu nombre…</option></select><small id="whomsg">Un voto por manager. Cuando guardes, tu nombre queda bloqueado para esta semana.</small></div>
   <div class="pkgrid" id="pk"></div>
   <div class="savebar" id="savebar"><span id="pkcount">Llevas <b>0/8</b> picks</span><button class="btn" id="pksave" disabled>Guardar picks →</button></div>
 </section>
@@ -707,7 +765,6 @@ textarea:focus{outline:none;border-color:var(--or)}
   <p><b>The Paint se hace con mucho amor.</b> Esta página existe para divertirnos, para ver la liga de otra manera y para llevar nuestro fantasy a otro nivel. Nadie me obliga a hacerla: la hace este servidor por puro amor al fantasy y a esta liga.</p>
   <p>The Paint sale cada semana, entre martes y miércoles. Si en algún momento llega tarde, sale incompleto o no sale, entiéndanlo: la vida, el trabajo y el sueño también juegan.</p>
   <p>A medida que esto vaya avanzando, iremos viendo qué más podemos agregar en videos, fotos y todo lo que se pueda seguir trayendo. Cualquier duda o algo que quieran decir, ya saben: tienen el <b>Speak up</b>, el buzón, siempre abierto.</p>
-  <p class="pd"><b>P.D.:</b> En las próximas ediciones vendremos con cosas nuevas que espero que disfruten. 🔒</p>
   <span class="sig">— Luis Pirela · The Paint · NBA Sportscenter Maracaibo</span>
 </div>
 
@@ -756,122 +813,141 @@ textarea:focus{outline:none;border-color:var(--or)}
 /* =====================================================================
    DATOS DE LA SEMANA — esto es lo único que se cambia cada lunes
    ===================================================================== */
-const SEMANA = { week:3, stamp: "ESPN, NBC Sports y Yahoo · Mar 3 Nov" };
+const SEMANA = { week:4, stamp: "ESPN · Lun 9 Nov", top:["1,329","TuneSquad"] }; // top = mejor puntaje de la semana que cerró
 const INTRO = { // mensaje fijo de bienvenida (no cambia cada semana)
   texto: "Bienvenidos a <b>The Paint</b>, la zona donde se gana o se pierde todo. Aquí no hay excusas que valgan: cada semana revisamos quién subió, quién se cayó y quién sigue jurando que la culpa es del calendario, del Wi-Fi y hasta de que se fue la luz. Pasa, revisa tu roster, haz tus picks y, si tienes algo que reclamar, el buzón está abierto. <span class='motto'>Que gane el mejor manager</span>",
   firma: "— Luis Pirela, The Paint"
 };
-const MOTW = { // Manager of the Week: semana, índice en STANDINGS, puntos de esa semana, comentario. Vacío = pendiente. La foto sale sola de MANAGERS.
-  week: 2, team: 3, pts: 1132, rival: 6, rivalPts: 1129, // rival = índice en STANDINGS del que perdió // pts: puntos de esa semana (null = no se muestra el número)
-  foto: "media/w3-mvp-fernando.jpg", fotoTexto: "Fernando domando a Pozo",
-  captura: "", // foto del marcador final del matchup, ej. "media/motw-week2.jpg"
-  texto: "Sabía que Pozo iba a tradear en su contra y que del otro lado lo esperaba la banda de Shihai, con Sammy Casilla como piedra fundamental. Nada de eso lo asustó: Fernando se las cantó temprano, hizo los movimientos que tenía que hacer y se la llevó por 3 puntos: padreada histórica de Fernando y win histórica contra un Pozo que, raramente, se quedó sin excusas."
+const MOTW = { // MVP de la semana. Si "persona" tiene datos, sale esa persona (ej. el comisionado) en vez de un equipo.
+  week: 3, team: null, pts: null, rival: null, rivalPts: null,
+  persona: { nombre:"Los Comisionados", rol:"Juan Urdaneta · Chandu · Emir · Pepo", dato:"TODOS", datoTexto:"LOS TRADES VETADOS · MENOS LOS SUYOS" },
+  foto: "media/w4-mvp-comisionados.jpg", fotoTexto: "Los Comivetos",
+  captura: "",
+  texto: "Los protagonistas absolutos del grupo esta semana. Como en su casa no tienen ni voz ni voto, vinieron a buscar el poder al único sitio donde alguien se lo dio: el fantasy. Y aquí se sienten dueños de todo: inventan las reglas que les da la gana, ponen las cosas a su manera y vetan trades a diestra y siniestra, sin dejar que nadie juegue tranquilo. Juan, Chandu, Emir y Pepo creen que mandar es lo mismo que tener la razón, y se cagan en la liga con una sonrisa. Para ellos, el MVP y su propia canción. Disfruten el poder mientras dure."
 };
 const NBA = {
-  hot: { nombre:"Luka Dončić", equipo:"LAL", promedio:"74.7", dueño:"Ctovz", texto:"Nadie promedia más en la liga tras dos semanas. Es un cheat code con camiseta de los Lakers." },
+  hot: { nombre:"Luka Dončić", equipo:"LAL", promedio:"78.2", dueño:"Ctovz", texto:"Sigue siendo el que más promedia en la liga. El problema: ahora está fuera por la espalda." },
   leaders: [ // categoría, top 3 Este, top 3 Oeste: [jugador, equipo, valor]
-    ["Puntos", [["Tyrese Maxey","PHI","29.1"],["Giannis Antetokounmpo","MIA","28.4"],["Jayson Tatum","BOS","27.0"]], [["Luka Dončić","LAL","38.3"],["Stephen Curry","GSW","30.0"],["Shai Gilgeous-Alexander","OKC","28.4"]]],
-    ["Rebotes", [["Karl-Anthony Towns","NYK","13.9"],["Giannis Antetokounmpo","MIA","12.3"],["Moussa Diabaté","CHA","9.5"]], [["Domantas Sabonis","SAC","14.6"],["Rudy Gobert","MIN","12.0"],["Victor Wembanyama","SAS","10.7"]]],
-    ["Asistencias", [["Trae Young","WAS","10.0"],["Jalen Johnson","ATL","8.0"],["Davion Mitchell","MIA","8.0"]], [["Nikola Jokić","DEN","9.0"],["Luka Dončić","LAL","8.1"],["Alperen Şengün","HOU","7.8"]]],
-    ["Robos", [["Dyson Daniels","ATL","3.0"],["Paul George","BOS","2.3"],["Bam Adebayo","MIA","2.3"]], [["Kris Dunn","LAC","2.9"],["Collin Gillespie","PHX","2.8"],["Zion Williamson","NOP","2.7"]]],
-    ["Tapones", [["Myles Turner","MIL","2.9"],["Peyton Watson","CLE","1.8"],["Jarrett Allen","CLE","1.7"]], [["Victor Wembanyama","SAS","4.0"],["Walker Kessler","LAL","2.5"],["Donovan Clingan","POR","2.2"]]],
-    ["Triples", [["Duncan Robinson","DET","4.0"],["Nickeil Alexander-Walker","ATL","3.9"],["Desmond Bane","ORL","3.6"]], [["Luka Dončić","LAL","5.9"],["Stephen Curry","GSW","4.5"],["Jamal Murray","DEN","4.5"]]],
+    ["Puntos", [["Giannis Antetokounmpo","MIA","27.5"],["Jayson Tatum","BOS","27.1"],["Tyrese Maxey","PHI","26.9"]], [["Luka Dončić","LAL","40.1"],["Stephen Curry","GSW","31.3"],["Shai Gilgeous-Alexander","OKC","29.9"]]],
+    ["Rebotes", [["Karl-Anthony Towns","NYK","13.6"],["Giannis Antetokounmpo","MIA","12.8"],["Joel Embiid","PHI","9.7"]], [["Domantas Sabonis","SAC","14.6"],["Rudy Gobert","MIN","12.1"],["Victor Wembanyama","SAS","12.0"]]],
+    ["Asistencias", [["Trae Young","WAS","8.9"],["Franz Wagner","ORL","8.8"],["Davion Mitchell","MIA","8.5"]], [["Nikola Jokić","DEN","9.1"],["Alperen Şengün","HOU","7.8"],["Draymond Green","GSW","7.8"]]],
+    ["Robos", [["Dyson Daniels","ATL","2.9"],["Paul George","BOS","2.3"],["Scottie Barnes","TOR","2.3"]], [["Kris Dunn","LAC","2.6"],["Collin Gillespie","PHX","2.4"],["Zion Williamson","NOP","2.2"]]],
+    ["Tapones", [["Myles Turner","MIL","2.5"],["Peyton Watson","CLE","1.6"],["Jarrett Allen","CLE","1.5"]], [["Victor Wembanyama","SAS","3.9"],["Walker Kessler","LAL","2.5"],["Donovan Clingan","POR","2.1"]]],
+    ["Triples", [["Duncan Robinson","DET","4.2"],["Klay Thompson","MIA","4.0"],["Nickeil Alexander-Walker","ATL","3.9"]], [["Luka Dončić","LAL","5.8"],["Stephen Curry","GSW","4.8"],["Jamal Murray","DEN","3.9"]]],
   ],
-  east: [["76ers","7-1","—"],["Pistons","6-1","0.5"],["Celtics","5-2","1.5"],["Wizards","4-3","2.5"],["Raptors","4-3","2.5"],["Cavaliers","4-3","2.5"],["Hawks","4-4","3.0"],["Knicks","3-4","3.5"],["Hornets","3-5","4.0"],["Heat","2-5","4.5"],["Magic","2-5","4.5"],["Pacers","2-6","5.0"],["Bulls","1-6","5.5"],["Bucks","1-6","5.5"],["Nets","1-6","5.5"]],
-  west: [["Rockets","7-1","—"],["Grizzlies","6-1","0.5"],["Trail Blazers","5-1","1.0"],["Lakers","6-2","1.0"],["Thunder","5-2","1.5"],["Spurs","5-2","1.5"],["Warriors","5-3","2.0"],["Timberwolves","5-3","2.0"],["Mavericks","4-3","2.5"],["Nuggets","3-3","3.0"],["Pelicans","3-4","3.5"],["Suns","1-4","4.5"],["Clippers","1-6","5.5"],["Jazz","1-6","5.5"],["Kings","1-6","5.5"]],
+  east: [["76ers","9-2","—"],["Celtics","8-2","0.5"],["Hawks","7-4","2.0"],["Pistons","6-3","2.0"],["Raptors","5-4","3.0"],["Knicks","5-4","3.0"],["Cavaliers","5-5","3.5"],["Heat","4-6","4.5"],["Wizards","4-6","4.5"],["Hornets","3-7","5.5"],["Pacers","3-7","5.5"],["Magic","2-7","6.0"],["Nets","2-8","6.5"],["Bulls","1-8","7.0"],["Bucks","1-9","7.5"]],
+  west: [["Lakers","9-2","—"],["Spurs","8-2","0.5"],["Thunder","8-2","0.5"],["Timberwolves","8-3","1.0"],["Rockets","7-3","1.5"],["Warriors","7-3","1.5"],["Grizzlies","6-3","2.0"],["Trail Blazers","6-3","2.0"],["Mavericks","6-4","2.5"],["Nuggets","5-3","2.5"],["Suns","3-5","4.5"],["Pelicans","4-6","4.5"],["Clippers","2-7","6.0"],["Jazz","1-9","7.5"],["Kings","1-9","7.5"]],
 };
-const HOT_WEEK = { week: 2, rango: "Week 2 · 26 oct – 1 nov", items: [ // jugador, equipo, promedio, total, juegos, dueño en la liga, por qué
-  ["Victor Wembanyama","SAS","90.0","270","3","In The Clutch?","Tres juegos y 90 de promedio. El alien no es de este planeta."],
-  ["Luka Dončić","LAL","86.0","258","3","Ctovz","Se tomó una noche libre y aun así quedó segundo. Absurdo."],
-  ["Giannis Antetokounmpo","MIA","77.0","231","3","Team Simba 4.0 Draft Kings","Una aplanadora en Miami. Nadie le aguanta un choque."],
-  ["Cooper Flagg","DAL","70.0","210","3","The Revenant","El rookie que le dio a Fernando la win más apretada de la semana."],
-  ["Alperen Şengün","HOU","66.5","133","2","Chandu","Solo dos juegos, pero de puro lujo. Chandu se frota las manos."],
-], joya: ["Marcus Smart","HOU","39.5","Libre","El mejor promedio de la semana entre los que nadie tiene. Ahí está, esperando."] };
-const MEDIA = [ // galería: tipo "foto" o "video", archivo (carpeta media/), título
-  {tipo:"video", src:"media/w3-abraham-asistencia.mp4", poster:"media/w3-abraham-asistencia.jpg", titulo:"Abraham deja a Armando en el piso con esa asistencia"},
-  {tipo:"foto",  src:"media/w3-gianfranco-triple.jpg", titulo:"Gianfranco mata el partido con un triple… jugando solo"},
-  {tipo:"foto",  src:"media/w3-armando-bandeja.jpg", titulo:"Armando liquida a los Osos Revoltosos en su último torneo"},
-];
+const HOT_WEEK = { week: 3, rango: "Week 3 · 2 – 8 nov", items: [ // jugador, equipo, promedio, total, juegos, dueño en la liga, por qué
+  ["Luka Dončić","LAL","85.3","256","3","Ctovz","45 puntos por juego. Ahora está fuera por la espalda y Carlos reza."],
+  ["Victor Wembanyama","SAS","79.0","316","4","In The Clutch?","14 rebotes y 3.5 tapones por juego. Diego tiene un alien y aun así va 1-2."],
+  ["Nikola Jokić","DEN","76.3","229","3","The Abduls Raviolis","Casi triple-doble cada noche. El motor del líder invicto."],
+  ["Stephen Curry","GSW","64.0","192","3","Once Brothers 💯","35 puntos por juego. Lástima que no alcanzó contra los raviolis."],
+  ["Shai Gilgeous-Alexander","OKC","63.5","254","4","Mambas NoCardboardRings","36 puntos por juego. Juan Urdaneta dice que ni un flop."],
+], joya: ["Klay Thompson","MIA","36.8","Libre","El mejor promedio de la semana entre los que nadie tiene. Dunkeros lo tuvo y lo soltó."] };
+const MEDIA = [ // galería: se acumulan; lo nuevo va ARRIBA. week = semana en que salió (las de la semana actual llevan "Nuevo")
+  {week:4, tipo:"video", src:"media/w4-samuel-tiro-libre.mp4", poster:"media/w4-samuel-tiro-libre.jpg", titulo:"Sammy Curry tira el tiro libre que define la final del campeonato estatal… solo que estaba jugando solo"},
+  {week:4, tipo:"foto",  src:"media/w4-armando-clutch.jpg", titulo:"Armando pilotea la última jugada clutch que les dio el campeonato"},
+  {week:3, tipo:"video", src:"media/w3-abraham-asistencia.mp4", poster:"media/w3-abraham-asistencia.jpg", titulo:"Abraham deja a Armando en el piso con esa asistencia"},
+  {week:3, tipo:"foto",  src:"media/w3-gianfranco-triple.jpg", titulo:"Gianfranco mata el partido con un triple… jugando solo"},
+  {week:3, tipo:"foto",  src:"media/w3-armando-bandeja.jpg", titulo:"Armando liquida a los Osos Revoltosos en su último torneo"},
+]
 const OGS = [ // los colados: nombre, apodo, foto (carpeta media/), frase
+  {nombre:"Daniel Ramírez", apodo:"El primer comisionado", foto:"media/colado-daniel.jpg", desc:"El que alguna vez fue el primer comisionado del primer fantasy NBA. Hoy en día retirado de las canchas, pero se perfila a un posible retorno… ¿solo como comisionado de este fantasy por este año? Dejamos la incógnita."},
   {nombre:"Ángel Martínez", apodo:"El Gordo", foto:"media/gordo-angel.jpg", desc:"Viejo participante de esta liga, recordado por su famoso intento de tradear a Gobert y Kyle Lowry por Giannis y Goran Dragić. Otro que pensaba que la liga, Papá Dios y los planetas siempre estaban en su contra."},
 ];
 const ROYS = [ // los rookies: nombre, apodo, foto (carpeta media/), frase
   {nombre:"Juan Bolívar", apodo:"JD", foto:"media/roy-jd.jpg", desc:"Intenta ser distinto recién llegando. Maneja el equipo de lejos con Pedro, pero su primer highlight fue intentar tener un cara a cara con Pozo."},
   {nombre:"Luis Sandoval", apodo:"Sando", foto:"media/roy-sando.jpg", desc:"Un poco callado, pero pendiente de todo en el grupo. Maneja el equipo con Emir. Intentó su primer highlight mandando una noticia, pero Pirela lo paró en seco y le dejó claro que ese no es su terreno. Las noticias aquí tienen dueño."},
 ];
-const FRASE = { texto:"Descansa al final, no en la mitad.", autor:"Kobe Bryant" };
-const NBA_INJ = { total:96, out:82, dtd:14 }; // ESPN, 3 Nov
+const PREMIOS = [ // icono, premio, equipo, número grande, etiqueta del número, marcador/detalle, comentario
+  ["🔨","La Paliza","Ctovz","424","DE DIFERENCIA","Ctovz 1,206 – 782 Leonidas","Carlos señaló y la metió. La paliza más grande de la semana, por mucho."],
+  ["💔","El Infarto","TuneSquad","29","DE DIFERENCIA","TuneSquad 1,329 – 1,300 Dunkeros","La primera victoria de Abraham llegó con el corazón en la boca y con Juan mirando el marcador hasta el domingo en la noche."],
+  ["😭","Mala Suerte","Dunkeros","1,300","PUNTOS Y PERDIÓ","Segundo mejor puntaje de toda la semana","Con 1,300 le ganaba a cualquiera de la liga… menos al único que le tocó."],
+  ["🪑","La Banca de Oro","TuneSquad","251","PUNTOS EN LA BANCA","Ganó igual, por 29","Ganó y aun así dejó 251 puntos sentados. Imagínate si los pone."],
+  ["🧊","El Congelador","Leonidas: Revolutions","782","PUNTOS","El peor puntaje de la semana","Lo mínimo de la Week 3. Los 300 espartanos siguen sin llegar."],
+];
+const TRX = { // transacción de la semana
+  equipo:"Dunkeros", jugador:"Klay Thompson", tipo:"Waiver", stats:[["36.8","Promedio"],["147","Pts en la semana"],["4","Juegos"]],
+  texto:"Juan lo levantó del waiver el lunes y Klay respondió con 36.8 de promedio en la semana, de lo mejor que había libre. ¿El detalle? Hoy está libre otra vez: es la joya del waiver de esta edición. Nadie entiende nada."
+};
+const ESPECIAL = { // canción: número, título, autor, archivo (carpeta media/), texto
+  num:1, titulo:"Los Comivetos", autor:"Luis Pirela", src:"media/especial-01.mp3", cover:"media/especial-01-cover.png",
+  texto:"Una canción hecha para esta liga y dedicada a la democracia del fantasy, esa que existe hasta que cuatro comisionados deciden lo contrario. Aquí se cuenta lo que nadie se atreve a decir en el grupo: trades que se cayeron, vetos que nadie entendió y una liga donde manda el que tiene el botón. Dale play, súbele volumen y que se escuche hasta en el grupo."
+};
+const FRASE = { texto:"Preocúpate más por tu carácter que por tu reputación, porque tu carácter es lo que realmente eres, mientras que tu reputación es simplemente lo que otros piensan que eres.", autor:"John Wooden" };
+const NBA_INJ = { total:95, out:75, dtd:20 }; // ESPN, 9 Nov
 const WHATSAPP = "13465583028";
 
-const STANDINGS = [ // equipo, manager, W, L, VT1, PF, PA, playoff%, racha, tier semana 3
-  ["Once Brothers 💯","Luis Pirela",2,0,1,2343,1930,77,"W2",1],
-  ["The Abduls Raviolis","Gianfranco Santilli",2,0,1,2298,2283,72,"W2",1],
-  ["Periqueros de Calle Carabobo","Pedro Garcia",2,0,1,2165,1753,83,"W2",1],
-  ["The Revenant","Fernando Salas",2,0,1,2012,2001,56,"W2",1],
-  ["In The Clutch?","Diego Perdomo",1,1,0,2310,2310,39,"L1",2],
-  ["Team Simba 4.0 Draft Kings","Gianpiero Santilli",1,1,0,2202,1852,70,"W1",1],
-  ["La Sonrisa de RJ","Jesus Pozo",1,1,0,2105,1945,21,"L1",2],
-  ["Rakuzan","Emir Sayago",1,1,0,2085,1970,46,"W1",1],
-  ["Team Rida","Erick Chacin",1,1,0,2034,2204,47,"L1",2],
-  ["Team N*gg@","Armando Montero",1,1,0,2015,1840,19,"W1",1],
-  ["Chandu","Manuel Gutierrez",1,1,0,1953,2107,72,"W1",1],
-  ["Mambas NoCardboardRings","Samuel Casilla",1,1,0,1909,2100,61,"L1",2],
-  ["Ctovz","Carlos Tovar",0,2,0,1913,2091,43,"L2",2],
-  ["Leonidas: Revolutions","Luis Leon",0,2,0,1869,2124,28,"L2",2],
-  ["Dunkeros","Juan Urdaneta",0,2,0,1864,2202,39,"L2",2],
-  ["TuneSquad","Abraham Gonzalez",0,2,0,1825,2190,26,"L2",2],
+const STANDINGS = [ // equipo, manager, W, L, VT1, PF, PA, playoff%, racha, tier semana 4 (orden oficial: récord › VT1 › PF)
+  ["The Abduls Raviolis","Gianfranco Santilli",3,0,2,3590,3474,86,"W3",1],
+  ["The Revenant","Fernando Salas",3,0,2,3174,3073,84,"W3",1],
+  ["Once Brothers 💯","Luis Pirela",2,1,1,3534,3222,81,"L1",2],
+  ["Team Simba 4.0 Draft Kings","Gianpiero Santilli",2,1,1,3462,2738,85,"W2",1],
+  ["Periqueros de Calle Carabobo","Pedro Garcia",2,1,1,3237,2915,41,"L1",2],
+  ["Chandu","Manuel Gutierrez",2,1,1,3039,3119,81,"W2",1],
+  ["La Sonrisa de JR","Jesus Pozo",2,1,0,3257,3057,49,"W1",1],
+  ["Team Rida","Erick Chacin",2,1,0,3198,3217,71,"W1",1],
+  ["In The Clutch?","Diego Perdomo",1,2,0,3422,3462,35,"L2",2],
+  ["TuneSquad","Abraham Gonzalez",1,2,0,3154,3490,22,"W1",1],
+  ["Ctovz","Carlos Tovar",1,2,0,3119,2873,30,"W1",1],
+  ["Team N*gg@","Armando Montero",1,2,0,3027,2926,25,"L1",2],
+  ["Rakuzan","Emir Sayago",1,2,0,2971,3230,24,"L1",2],
+  ["Mambas NoCardboardRings","Samuel Casilla",1,2,0,2922,3264,61,"L2",2],
+  ["Dunkeros","Juan Urdaneta",0,3,0,3164,3531,15,"L3",2],
+  ["Leonidas: Revolutions","Luis Leon",0,3,0,2651,3330,11,"L3",2],
 ];
 const COMENTARIOS = { // una línea jocosa por equipo debajo de su nombre en Standings
-  "Once Brothers 💯":"Ya pidió que le reserven el trofeo. Nadie le ha dicho que la temporada dura hasta abril.",
-  "The Abduls Raviolis":"Invicto y con nombre de pasta. Por ahora la salsa le está quedando buena.",
-  "Periqueros de Calle Carabobo":"En esa calle no se pasa ni con permiso. Defienden como si les estuvieran robando el puesto.",
-  "The Revenant":"Como en la película: lo dan por muerto todas las semanas y siempre vuelve.",
-  "In The Clutch?":"El signo de interrogación se lo puso él mismo. Sabía lo que hacía.",
-  "Team Simba 4.0 Draft Kings":"Hakuna matata toda la semana… hasta que el domingo revisa el marcador.",
-  "La Sonrisa de RJ":"Se desvivió, perdió y sigue sonriendo. Eso se llama salud mental.",
-  "Rakuzan":"Nombre de anime, temporada de anime: va subiendo de nivel episodio por episodio.",
-  "Team Rida":"Le tocó el líder en la Week 2 y salió revolcado. En el Tier 2 se siente como en casa.",
-  "Team N*gg@":"Nadie lo vio venir y ya está en la Élite. El más calladito de la liga.",
-  "Chandu":"Reparte asistencias como si fueran hallacas en diciembre.",
-  "Mambas NoCardboardRings":"Sin anillos de cartón, eso dice el nombre. Los de verdad todavía están en camino.",
-  "Ctovz":"Nadie sabe cómo se pronuncia el nombre, pero todos saben que viene por la primera.",
-  "Leonidas: Revolutions":"This is Sparta… solo que los 300 todavía no llegan al partido.",
-  "Dunkeros":"Vive en el waiver. Le llegan notificaciones de ESPN hasta en sueños.",
-  "TuneSquad":"Space Jam en la vida real: falta que Michael Jordan baje a ayudar.",
+  "The Abduls Raviolis":"Invicto y líder. La salsa de los raviolis ya se huele desde Maracaibo.",
+  "The Revenant":"3-0 y todavía hay quien lo da por muerto. Fernando ya ni se molesta en responder.",
+  "Once Brothers 💯":"Se le cayó el invicto y bajó al Tier 2. Ya está preparando el discurso de la remontada.",
+  "Team Simba 4.0 Draft Kings":"Le pasó por encima a Rakuzan y tiene la mejor defensa de la liga. Hakuna matata de verdad.",
+  "La Sonrisa de JR":"Le dio la vuelta a las letras del nombre y le funcionó: subió a la Élite.",
+  "Periqueros de Calle Carabobo":"La defensa no aguantó a The Revenant. Calle Carabobo ahora queda en el Tier 2.",
+  "Team Rida":"Le ganó a la banda de Shihai y vuelve a la Élite. La secta está de fiesta.",
+  "Chandu":"Sigue repartiendo asistencias como hallacas en diciembre. El teacher aprueba la semana.",
+  "In The Clutch?":"De los que más puntos mete en la liga y va 1-2. El signo de interrogación sigue más vigente que nunca.",
+  "TuneSquad":"Primera victoria y con media banca encendida. Michael Jordan bajó, pero se quedó sentado.",
+  "Ctovz":"Le pasó por encima a Leonidas. Donde señala, la mete.",
+  "Team N*gg@":"Bajó al Tier 2 sin hacer ruido, igual que como subió.",
+  "Rakuzan":"Le cayó la paliza de Simba. El anime pasó a capítulo de relleno.",
+  "Mambas NoCardboardRings":"Tiene a Shai y aun así va 1-2. Ni los anillos de cartón llegan.",
+  "Dunkeros":"0-3. Vive en el waiver y el waiver no le devuelve el amor.",
+  "Leonidas: Revolutions":"0-3. Los 300 siguen sin llegar, y ahora León tampoco duerme.",
 };
 const LEADERS = [ // categoría, valor, equipo
-  ["Puntos a favor","2,343","Once Brothers"],["Rebotes","426","Once Brothers"],["Triples","126","Once Brothers"],
-  ["Asistencias","281","Chandu"],["Robos","76","In The Clutch?"],["Tapones","78","In The Clutch?"],
-  ["Menos PA","1,753","Periqueros"],["Más movimientos","11","Dunkeros"],
+  ["Puntos a favor","3,590","Abduls Raviolis"],["Rebotes","581","Once Brothers"],["Triples","207","Once Brothers"],
+  ["Asistencias","449","Chandu"],["Robos","109","Simba y TuneSquad"],["Tapones","108","In The Clutch?"],
+  ["Menos PA","2,738","Team Simba"],["Más movimientos","15","Abduls Raviolis"],
 ];
-const BRACKETS = { // [seed1, seed2, comentario] usando índice de STANDINGS (0 = primero)
-  t1:[[0,1,"Duelo de invictos por la cima. Los dos con más PF del Tier 1: 2,343 contra 2,298."],
-      [2,3,"Periqueros llega con la mejor defensa de la liga: solo 1,753 PA."],
-      [5,7,"Team Simba ya sumó 2,202 PF; Rakuzan necesita la victoria para no bajar."],
-      [9,10,"Chandu lidera la liga en asistencias (281). Choque parejo en el fondo de la Élite."]],
-  t2:[[4,6,"In The Clutch? es tercero en PF de la liga (2,310). Favorito para subir."],
-      [8,11,"Récords iguales, 1-1. El que gane sube a la Élite."],
-      [12,13,"Ambos 0-2. Aquí alguien estrena victoria."],
-      [14,15,"Dunkeros es el más activo en el waiver (11 movimientos). TuneSquad busca su primera."]]
+const BRACKETS = { // [seed1, seed2, comentario] usando índice de STANDINGS (0 = primero). Oficiales Week 4.
+  t1:[[0,1,"Los dos únicos invictos de la liga. Alguien pierde el cero esta semana."],
+      [3,5,"Simba tiene la mejor defensa de la liga; Chandu reparte asistencias como nadie."],
+      [6,7,"Los dos recién ascendidos y 2-1. El que pierda vuelve a bajar."],
+      [9,10,"Los dos subieron la semana pasada y van 1-2. Aquí no hay segunda oportunidad."]],
+  t2:[[2,4,"Los dos bajaron del Tier 1 la semana pasada. Duelo de heridos con hambre."],
+      [8,11,"In The Clutch? mete muchos puntos pero no gana. Team N*gg@ quiere volver arriba."],
+      [12,13,"Los dos 1-2 y con ganas de olvidar la Week 3."],
+      [14,15,"Los dos 0-3. Aquí alguien estrena victoria sí o sí."]]
 };
 const PLAYOFF_CUT = 0; // sin línea de corte por ahora
 
-const DAYS = [["Lun",15],["Mar",0],["Mié",14],["Jue",2],["Vie",9],["Sáb",7],["Dom",7]];
+const DAYS = [["Lun",8],["Mar",6],["Mié",10],["Jue",4],["Vie",9],["Sáb",5],["Dom",9]];
 const LOW = 8; // menos de 8 juegos = noche floja
 const SCHED = [ // equipo, [L,M,X,J,V,S,D]
-  ["ATL",[1,0,1,0,1,1,0]],["BOS",[1,0,1,0,1,0,1]],["BKN",[1,0,1,0,0,1,1]],["CLE",[1,0,1,0,1,1,0]],
-  ["DAL",[1,0,1,0,1,0,1]],["LAL",[1,0,1,0,1,0,1]],["MIA",[1,0,1,1,0,0,1]],["MIL",[1,0,1,0,1,0,1]],
-  ["MIN",[1,0,1,0,1,0,1]],["NOP",[1,0,1,0,1,0,1]],["OKC",[1,0,1,0,1,1,0]],["PHI",[1,0,1,0,1,0,1]],
-  ["PHX",[1,0,1,1,0,1,0]],["POR",[1,0,1,0,1,1,0]],["SAC",[1,0,1,0,1,0,1]],["SAS",[1,0,1,0,1,1,0]],
-  ["UTA",[1,0,1,0,1,0,1]],["WAS",[1,0,1,0,1,1,0]],
-  ["CHA",[1,0,1,0,1,0,0]],["CHI",[1,0,1,0,0,0,1]],["DEN",[1,0,1,0,0,1,0]],["DET",[1,0,1,0,0,0,1]],
-  ["GSW",[1,0,0,1,0,1,0]],["HOU",[1,0,1,0,0,1,0]],["IND",[1,0,1,0,0,1,0]],["LAC",[1,0,1,0,0,0,1]],
-  ["MEM",[1,0,1,0,1,0,0]],["NYK",[1,0,1,0,0,1,0]],["ORL",[1,0,0,1,0,1,0]],["TOR",[1,0,1,0,1,0,0]],
+  ["ATL",[1,0,0,0,1,0,1]], ["LAL",[1,0,1,0,0,0,1]], ["CHA",[1,0,0,1,0,0,1]], ["CLE",[1,0,1,0,1,1,0]],
+  ["DET",[1,0,0,1,0,1,0]], ["WAS",[1,0,1,1,0,0,1]], ["TOR",[1,0,1,1,0,0,1]], ["MEM",[1,0,1,0,1,1,0]],
+  ["DAL",[1,0,0,1,0,1,1]], ["IND",[1,0,1,0,1,0,1]], ["HOU",[1,0,1,0,1,0,1]], ["DEN",[1,0,1,0,0,1,0]],
+  ["PHX",[1,1,0,1,0,0,1]], ["SAS",[1,0,1,0,1,0,1]], ["GSW",[1,0,1,0,1,0,0]], ["NOP",[1,0,1,0,1,1,0]],
+  ["NYK",[0,1,1,0,1,0,1]], ["MIL",[0,1,1,0,1,0,1]], ["PHI",[0,1,0,1,0,0,1]], ["BOS",[0,1,1,0,0,0,1]],
+  ["LAC",[0,1,0,0,1,0,1]], ["UTA",[0,1,1,0,1,0,1]], ["MIA",[0,1,0,0,1,1,0]], ["SAC",[0,1,0,0,1,0,1]],
+  ["ORL",[0,1,1,0,1,0,0]], ["POR",[0,1,1,0,1,0,0]], ["OKC",[0,1,1,0,1,0,1]], ["CHI",[0,0,1,0,1,1,0]],
+  ["BKN",[0,0,1,0,0,1,0]], ["MIN",[0,0,0,1,0,1,0]],
 ];
 const RADAR = [ // icono, título, sub, texto
-  ["bolt","Phoenix y Miami","4 juegos · juegan el jueves","Son de los únicos que juegan el jueves, cuando solo hay 2 partidos. Phoenix además juega el sábado; Miami, el domingo. Cualquier rotacional con minutos te suma."],
-  ["b2b","Brooklyn","4 juegos · sábado y domingo","Cierra la semana con back-to-back en las dos noches flojas. Bueno para sumar al final, pero ojo con descansos el domingo."],
-  ["warn","Golden State y Orlando","Solo 3 juegos, pero bien ubicados","Juegan jueves y sábado, dos noches flojas. Con 3 juegos rinden casi como uno de 4 si sabes dónde meterlos."],
+  ["bolt","Dallas y Phoenix","4 juegos · 2 noches flojas","Son los que mejor caen esta semana: Dallas juega jueves y sábado; Phoenix, martes y jueves. Cualquier rotacional con minutos te suma justo cuando casi nadie juega."],
+  ["b2b","Washington y Toronto","4 juegos · back-to-back miércoles y jueves","El jueves solo hay 4 partidos y ellos juegan. Buenos para cubrir la noche más floja, pero ojo con descansos en el segundo juego."],
+  ["warn","Brooklyn y Minnesota","Solo 2 juegos en toda la semana","La semana más corta de la liga. Si tienes a Gobert o a alguien de los Nets, busca con quién llenar los días que no juegan."],
 ];
 
 const INJ = [ // jugador, equipo, lesión, regreso estimado (ESPN)
@@ -883,16 +959,20 @@ const INJ = [ // jugador, equipo, lesión, regreso estimado (ESPN)
   ["Shaedon Sharpe","POR","Menisco roto en la rodilla. Unos seis meses.","Marzo"],
   ["Paolo Banchero","ORL","Esguince alto de tobillo derecho. De 4 a 6 semanas.","~22 nov"],
   ["Kawhi Leonard","TOR","Inflamación en la rodilla izquierda. De 3 a 4 semanas.","~23 nov"],
-  ["Tyrese Haliburton","IND","Distensión del isquiotibial izquierdo. Al menos dos semanas.","~13 nov"],
-  ["Jalen Suggs","ORL","Contusión ósea leve en la rodilla derecha.","~10 nov"],
+  ["Jalen Duren","DET","Distensión del isquiotibial derecho.","~24 nov"],
+  ["Bradley Beal","LAC","Inflamación en la rodilla derecha.","~29 nov"],
+  ["Tyrese Haliburton","IND","Distensión del isquiotibial izquierdo. Va bien, pero sin fecha oficial.","~13 nov"],
   ["Jimmy Butler III","GSW","Recuperándose de un desgarro del ligamento cruzado (ACL).","Enero"],
   ["Mark Williams","PHX","Cirugía por desgarro del labrum del hombro izquierdo.","Febrero"],
 ];
 
  /* PICK'EM: los duelos salen de BRACKETS. LAST_PICKS = resultados de la semana pasada
    (equipo A, equipo B, % que escogió a A, ganador 0=A 1=B). Vacío esta semana. */
-const PICK_ID = "w3b"; // id de la ronda de picks; cambiarlo reinicia votos y picks guardados
-const LAST_PICKS = { week:2, rows:[] };
+const PICK_ID = "w4"; // id de la ronda de picks; cambiarlo reinicia votos y picks guardados
+const LAST_PICKS = { week:3, rows:[ // equipo A, equipo B, % que escogió a A, ganador (0=A, 1=B)
+  ["Once Brothers","Abduls Raviolis",68,1],["Periqueros","The Revenant",68,1],["Team Simba","Rakuzan",79,0],["Team N*gg@","Chandu",47,1],
+  ["In The Clutch?","La Sonrisa de JR",53,1],["Team Rida","Mambas",47,0],["Ctovz","Leonidas",63,0],["Dunkeros","TuneSquad",47,1],
+]};
 
 const MANAGERS = { // por equipo: foto (ruta en GitHub, ej. "fotos/luis.jpg") y frase corta del manager
   "Once Brothers 💯":{foto:"media/manager-luis.jpg",desc:"Trash Talk: viene a seguir demostrando, como cada año lo hace, de qué está hecho, y también a quemarse los dedos escribiendo sus noticias y The Paint. Siempre metido en playoffs, pero ahora cree que porque jugó con Dwyane Wade puede quedar campeón."},
@@ -901,7 +981,7 @@ const MANAGERS = { // por equipo: foto (ruta en GitHub, ej. "fotos/luis.jpg") y 
   "The Revenant":{foto:"media/manager-fernando.jpg",desc:"El nombre de su equipo lo dice todo: el popular \"jornada 15\" que viene a tapar jetas y a demostrar por qué es el renacimiento de este fantasy. No entendemos el balón de fútbol en una liga de básquet, pero ahí está, farmeando aura."},
   "In The Clutch?":{foto:"media/manager-diego.jpg",desc:"El más inmamable del fantasy y odiado por muchos. Sin mucho que decir, porque se molesta. Su misión: demostrar que sí se puede llegar a playoffs sin hacer un solo trade… o, en su defecto, cumplir su sueño frustrado: atracar a alguien en un trade masivo."},
   "Team Simba 4.0 Draft Kings":{foto:"media/manager-gianpiero.jpg",desc:"El otro integrante de la mafia italiana. Compra barato, vende caro y viene con una sola misión: que Samuel lo deje clasificar."},
-  "La Sonrisa de RJ":{foto:"media/manager-pozo.jpg",desc:"Viejo conocido cuyo único objetivo es cambiar la liga a su manera y llevar la contraria en todo lo que pueda. Si dices que el cielo es azul, te manda tres audios explicando por qué es morado."},
+  "La Sonrisa de JR":{foto:"media/manager-pozo.jpg",desc:"Viejo conocido cuyo único objetivo es cambiar la liga a su manera y llevar la contraria en todo lo que pueda. Si dices que el cielo es azul, te manda tres audios explicando por qué es morado."},
   "Rakuzan":{foto:"media/manager-emir.jpg",desc:"Recibió la puñalada más grande en la historia de un fantasy por \"confiar\" en alguien. Desde entonces su vida cambió: trenzas, se cree más gangster que nunca y anda con Drake, Travis y Kendrick de fondo con los vidrios abajo. Solo se le olvidó que está en Maracaibo."},
   "Team Rida":{foto:"media/manager-erick.jpg",desc:"El popular encendido de la liga, veterano con mucha experiencia y presidente de la secta Shihai, que busca redimirse semana tras semana sin tener una manada detrás."},
   "Team N*gg@":{foto:"media/manager-armando.jpg",desc:"El toscano de la liga, que busca impresionar en su primera aparición y demostrar que así como juega básquet en la vida real, juega en el fantasy."},
@@ -922,9 +1002,6 @@ const lab={out:"Out",dud:"Dudoso",cue:"Cuestionable",pro:"Probable"};
 
 // Hero stats
 const leadT=STANDINGS[0], mostPF=[...STANDINGS].sort((a,b)=>b[5]-a[5])[0], d1=BRACKETS.t1[0];
-$('#s-lead').textContent=`${leadT[2]}-${leadT[3]}`;$('#s-lead-n').textContent=leadT[0].replace(' 💯','');
-$('#s-best').textContent=mostPF[5].toLocaleString();$('#s-best-n').textContent=mostPF[0].replace(' 💯','');
-$('#s-low').textContent='#1 vs #2';$('#s-low-n').textContent=`${STANDINGS[d1[0]][0].replace(' 💯','')} vs ${STANDINGS[d1[1]][0].replace(' 💯','')}`;
 $('#stamp').textContent=SEMANA.stamp;
 
 // Standings
@@ -964,8 +1041,12 @@ $('#inj').innerHTML=INJ.map(x=>`<div class="inj out"><div class="h"><div><small>
 const initials=n=>n.split(' ').filter(w=>/[A-Za-zÁÉÍÓÚÑ]/.test(w[0])).slice(0,2).map(w=>w[0]).join('').toUpperCase();
 const clean=n=>n.replace(' 💯','');
 // Manager of the Week
-$('#motw-k').textContent=`Manager of the Week · Week ${MOTW.week}`;
-if(MOTW.team!==null){const t=STANDINGS[MOTW.team],m={...(MANAGERS[t[0]]||{})};if(MOTW.foto)m.foto=MOTW.foto;
+$('#motw-k').textContent=`MVP de la semana · Week ${MOTW.week}`;
+if(MOTW.persona){const P=MOTW.persona;
+  $('#motw').innerHTML=`${MOTW.foto?`<div class="mph mvpph"><img src="${MOTW.foto}" alt="${P.nombre}" onerror="this.parentNode.remove();document.getElementById('motw').classList.add('solo')">${MOTW.fotoTexto?`<span class="star">⭐ ${MOTW.fotoTexto}</span>`:''}</div>`:''}<div class="txt"><span class="crown">★ MVP de la semana</span><div class="stat">${P.dato}<small>${P.datoTexto}</small></div><h3>${P.nombre}</h3><span class="tm">${P.rol}</span><p>${MOTW.texto}</p></div>`;
+  if(!MOTW.foto)$('#motw').classList.add('solo');
+  else setTimeout(()=>{const ph=document.querySelector('.mvpph');if(ph)ph.onclick=()=>{$('#lbc').innerHTML=`<img src="${MOTW.foto}" alt="MVP">`;$('#lbt').textContent='⭐ '+MOTW.fotoTexto;$('#lb').classList.add('on');};},0);
+}else if(MOTW.team!==null){const t=STANDINGS[MOTW.team],m={...(MANAGERS[t[0]]||{})};if(MOTW.foto)m.foto=MOTW.foto;
   $('#motw').classList.toggle('solo',!m.foto);
   $('#motw').innerHTML=`${m.foto?`<div class="mph mvpph"><img src="${m.foto}" alt="${t[1]}" onerror="this.parentNode.remove();document.getElementById('motw').classList.add('solo')">${MOTW.foto&&MOTW.fotoTexto?`<span class="star">⭐ ${MOTW.fotoTexto}</span>`:''}</div>`:''}
   <div class="txt"><span class="crown">★ Manager of the Week</span>${MOTW.rival!=null?`<div class="score"><div class="sc-row win"><span>${clean(t[0])}</span><b>${MOTW.pts.toLocaleString()}</b></div><div class="sc-row"><span>${clean(STANDINGS[MOTW.rival][0])}</span><b>${MOTW.rivalPts.toLocaleString()}</b></div><small>Resultado final · Week ${MOTW.week} · diferencia de ${MOTW.pts-MOTW.rivalPts}</small></div>`:`<div class="pts">${MOTW.pts!==null?MOTW.pts.toLocaleString():'MVP'}<small>${MOTW.pts!==null?'PTS EN LA WEEK '+MOTW.week:'WEEK '+MOTW.week}</small></div>`}
@@ -979,7 +1060,7 @@ if(MOTW.team!==null){const t=STANDINGS[MOTW.team],m={...(MANAGERS[t[0]]||{})};if
 
 // NBA
 const ESC="Puntos fantasy con la puntuación de nuestra liga en ESPN.";
-$('#hot').innerHTML=NBA.hot?`<div class="fire">${NBA.hot.promedio}<small>PROMEDIO FANTASY · TEMPORADA</small></div><div><span class="k">🔥 El más encendido de la temporada · 6 juegos</span><h3>${NBA.hot.nombre} <span style="color:var(--mu);font-weight:600;font-size:.6em">${NBA.hot.equipo}</span></h3><p>${NBA.hot.texto}</p><p class="own">En la liga: <b>${NBA.hot.dueño}</b></p></div>`
+$('#hot').innerHTML=NBA.hot?`<div class="fire">${NBA.hot.promedio}<small>PROMEDIO FANTASY · TEMPORADA</small></div><div><span class="k">🔥 El más encendido de la temporada · 9 juegos</span><h3>${NBA.hot.nombre} <span style="color:var(--mu);font-weight:600;font-size:.6em">${NBA.hot.equipo}</span></h3><p>${NBA.hot.texto}</p><p class="own">En la liga: <b>${NBA.hot.dueño}</b></p></div>`
   :`<div class="fire">—<small>PROMEDIO FANTASY · TEMPORADA</small></div><div><span class="k">🔥 El más encendido de la temporada</span><h3>Pendiente</h3><p>Llega con los números de nuestra liga en ESPN.</p></div>`;
 $('#hotwk-k').textContent=`🔥 Los más encendidos de la semana · ${HOT_WEEK.rango}`;
 $('#hotwk').innerHTML=HOT_WEEK.items.map((h,i)=>`<div class="hw"><small><span class="rkn">${String(i+1).padStart(2,'0')}</span>${h[1]}</small><b>${h[0]}</b><div class="fp">${h[2]}<i>PROMEDIO</i></div><div class="meta">${h[4]} juegos · ${h[3]} pts en total</div><p>${h[6]}</p><p class="own">En la liga: <b>${h[5]}</b></p></div>`).join('')
@@ -994,7 +1075,7 @@ $('#confmore').onclick=e=>{const c=$('#confs');c.classList.toggle('short');e.tar
 // Highlights
 $('#hl-k').textContent=`Highlights de la semana · Week ${SEMANA.week}`;
 function paintMedia(){
-  $('#mgrid').innerHTML=MEDIA.length?MEDIA.map((m,i)=>`<button class="mi" data-i="${i}">${m.tipo==='video'?`<video src="${m.src}" ${m.poster?`poster="${m.poster}"`:''} muted playsinline preload="metadata"></video><span class="play"></span>`:`<img src="${m.src}" alt="${m.titulo}" loading="lazy">`}<span class="badge">${m.tipo==='video'?'VIDEO':'FOTO'}</span><span class="cap">${m.titulo}</span></button>`).join('')
+  $('#mgrid').innerHTML=MEDIA.length?MEDIA.map((m,i)=>`<button class="mi" data-i="${i}">${m.tipo==='video'?`<video src="${m.src}" ${m.poster?`poster="${m.poster}"`:''} muted playsinline preload="metadata"></video><span class="play"></span>`:`<img src="${m.src}" alt="${m.titulo}" loading="lazy">`}<span class="badge">${m.week===SEMANA.week?'🔥 NUEVO · ':''}${m.tipo==='video'?'VIDEO':'FOTO'}</span><span class="cap">${m.titulo}</span></button>`).join('')
   :`<div class="mempty"><b>Los primeros highlights vienen pronto.</b>Cuando haya jugada buena, sale aquí.</div>`;}
 paintMedia();
 $('#mgrid').addEventListener('click',e=>{const b=e.target.closest('.mi');if(!b)return;const m=MEDIA[+b.dataset.i];
@@ -1020,17 +1101,27 @@ $('#roycar').innerHTML=ROYS.length?ROYS.map(o=>`<div class="mcard"><div class="m
 
 $('#frase-k').textContent=`La frase de la semana · Week ${SEMANA.week}`;$('#frase').textContent=`“${FRASE.texto}”`;$('#frase-a').textContent=FRASE.autor?`— ${FRASE.autor}`:'';
 
+// Premios
+$('#aw-k').textContent=`Premios de la semana · Week ${SEMANA.week-1}`;
+$('#awards').innerHTML=PREMIOS.map(a=>`<div class="aw"><span class="ic">${a[0]}</span><small>${a[1]}</small><b>${a[2]}</b><div class="big">${a[3]}<i>${a[4]}</i></div><span class="sc">${a[5]}</span><p>${a[6]}</p></div>`).join('');
+// Transacción
+$('#trx').innerHTML=`<div class="mv">${TRX.jugador}<em> → </em>${TRX.equipo}<span>${TRX.tipo} · Week ${SEMANA.week-1}</span></div><div><p>${TRX.texto}</p><div class="tst">${TRX.stats.map(x=>`<div><b>${x[0]}</b>${x[1]}</div>`).join('')}</div></div>`;
+// Edición especial
+$('#esp-k').textContent=`Edición especial · Track #${ESPECIAL.num}`;
+$('#track').innerHTML=`<img class="disc" id="disc" src="${ESPECIAL.cover}" alt="${ESPECIAL.titulo}"><div><h3>${ESPECIAL.titulo}</h3><div class="by">Por ${ESPECIAL.autor} · Track #${ESPECIAL.num}</div><p>${ESPECIAL.texto}</p><audio controls preload="none" src="${ESPECIAL.src}"></audio><p class="ask">🎧 ¿Quieres que la mande al grupo como nota de voz o prefieres recibirla por privado? Déjalo dicho en el buzón.</p><button class="btn ghost" data-open>Pídela en el buzón →</button></div>`;
+{const au=document.querySelector('#track audio'),dc=$('#disc');au.onplay=()=>dc.classList.add('spin');au.onpause=au.onended=()=>dc.classList.remove('spin');}
+
 // Ticker
 $('#intro').innerHTML=INTRO.texto;$('#intro-sig').textContent=INTRO.firma;
 const T=[`<b>The Paint</b> · Week ${SEMANA.week}`,`Líder: <b>${clean(STANDINGS[0][0])}</b> ${STANDINGS[0][2]}-${STANDINGS[0][3]}`,
   ...BRACKETS.t1.map(d=>`Tier 1: <b>${clean(STANDINGS[d[0]][0])}</b> vs <b>${clean(STANDINGS[d[1]][0])}</b>`),
   ...BRACKETS.t2.map(d=>`Tier 2: <b>${clean(STANDINGS[d[0]][0])}</b> vs <b>${clean(STANDINGS[d[1]][0])}</b>`),
-  ...(NBA.hot?[`Más encendido de la temporada: <b>${NBA.hot.nombre}</b> ${NBA.hot.promedio} pts fantasy por juego`]:[]),`<b>${NBA_INJ.total}</b> lesionados en la NBA`,`Martes sin juegos · Día de Elecciones`,`Haz tus picks del Week ${SEMANA.week}`];
+  ...(NBA.hot?[`Más encendido de la temporada: <b>${NBA.hot.nombre}</b> ${NBA.hot.promedio} pts fantasy por juego`]:[]),`<b>${NBA_INJ.total}</b> lesionados en la NBA`,`Jueves: solo 4 juegos en la NBA`,`Haz tus picks del Week ${SEMANA.week}`];
 $('#ticker').innerHTML=[...T,...T].map(t=>`<span>${t}</span>`).join('');
 
 // Managers
 const initials0=n=>n.split(' ').filter(w=>/[A-Za-zÁÉÍÓÚÑ]/.test(w[0])).slice(0,2).map(w=>w[0]).join('').toUpperCase();
-$('#mcar').innerHTML=STANDINGS.map((t,i)=>{const m=MANAGERS[t[0]]||{};const desc=m.desc||`Va ${t[2]}-${t[3]} con ${t[5].toLocaleString()} puntos a favor. Esta semana juega en el Tier ${t[9]}.`;
+$('#mcar').innerHTML=Object.keys(MANAGERS).map(k=>STANDINGS.find(x=>x[0]===k)).filter(Boolean).map((t,i)=>{const m=MANAGERS[t[0]]||{};const desc=m.desc||`Va ${t[2]}-${t[3]} con ${t[5].toLocaleString()} puntos a favor. Esta semana juega en el Tier ${t[9]}.`;
   return `<div class="mcard"><div class="mph"><span class="ini">${initials(t[1])}</span>${m.foto?`<img src="${m.foto}" alt="${t[1]}" onerror="this.remove()">`:''}
   
   <div class="nm"><small>${clean(t[0])}</small><b>${t[1]}</b></div></div>
@@ -1055,9 +1146,15 @@ const pkBox=(tier,title,cls)=>`<div class="pkt ${cls}"><div class="tier-h"><b>${
 $('#pk').innerHTML=pkBox(1,'<span class="tn1">Tier 1</span><span class="tn2">· Élite</span>','t1x')+pkBox(2,'<span class="tn1">Tier 2</span><span class="tn2">· Retadores</span>','t2x');
 const SAVED_KEY=`pk-saved-${PICK_ID}`;
 // Abrir la página con #reset-picks borra los picks guardados en ESTE teléfono (para pruebas)
-if(location.hash==='#reset-picks'){store.set(SAVED_KEY,'0');DUELS.forEach(d=>{try{localStorage.removeItem('pk-'+d.id)}catch(e){}});}
-let saved=store.get(SAVED_KEY)==='1', sel={};
+if(location.hash==='#reset-picks'){store.set(SAVED_KEY,'0');store.set(`pk-me-${PICK_ID}`,'');DUELS.forEach(d=>{try{localStorage.removeItem('pk-'+d.id)}catch(e){}});}
+let saved=store.get(SAVED_KEY)==='1', sel={}, ME=store.get(`pk-me-${PICK_ID}`)||'', TAKEN={};
 if(saved)DUELS.forEach(d=>{const v=store.get('pk-'+d.id);if(v!==null)sel[d.id]=+v;});
+// Votantes: un voto por manager (id m01..m16 en el orden de MANAGERS)
+const VOTERS=Object.keys(MANAGERS).map((k,i)=>{const t=STANDINGS.find(x=>x[0]===k)||[k,k];return {id:'m'+String(i+1).padStart(2,'0'),name:t[1],team:clean(k)};});
+function paintWho(){const sl=$('#whosel'),cur=sl.value||ME;
+  sl.innerHTML='<option value="">Escoge tu nombre…</option>'+VOTERS.map(v=>`<option value="${v.id}" ${TAKEN[v.id]&&v.id!==ME?'disabled':''}>${v.name} · ${v.team}${TAKEN[v.id]?' ✓ ya votó':''}</option>`).join('');
+  sl.value=cur;sl.disabled=saved;$('#who').classList.remove('err');
+  if(saved&&ME){const v=VOTERS.find(x=>x.id===ME);$('#whomsg').textContent=`Votaste como ${v?v.name:''}. Nos vemos en la próxima edición.`;}}
 function paintPk(){
   document.querySelectorAll('.pkd').forEach(el=>{const id=el.dataset.id,v=VOTES[id]||{},c=[v.o0||0,v.o1||0],tot=c[0]+c[1];
     el.querySelector('.vt').textContent=saved?(tot+(tot===1?' voto':' votos')):'';el.classList.toggle('done',saved);
@@ -1069,15 +1166,23 @@ function paintPk(){
   $('#pksave').disabled=saved||n<DUELS.length;$('#pksave').style.display=saved?'none':'';
   $('#savebar').classList.toggle('saved',saved);
 }
-async function loadPk(){if(FIREBASE_URL){try{const r=await fetch(`${FIREBASE_URL}/polls.json`);VOTES=(await r.json())||{};}catch(e){}}paintPk();}
+async function loadPk(){if(FIREBASE_URL){try{const r=await fetch(`${FIREBASE_URL}/picks/${PICK_ID}.json`);const all=(await r.json())||{};
+  TAKEN={};VOTES={};Object.entries(all).forEach(([who,x])=>{TAKEN[who]=1;const p=String(x.p||'');DUELS.forEach((d,i)=>{const o=p[i];if(o==='0'||o==='1'){VOTES[d.id]=VOTES[d.id]||{};VOTES[d.id]['o'+o]=(VOTES[d.id]['o'+o]||0)+1;}});});}catch(e){}}
+  paintWho();paintPk();}
 $('#pk').addEventListener('click',e=>{const b=e.target.closest('.pick');if(!b||saved)return;const id=b.closest('.pkd').dataset.id;sel[id]=+b.dataset.k;paintPk();});
 const cm=$('#cmodal');
-$('#pksave').onclick=()=>{$('#cl').innerHTML=DUELS.map(d=>{const w=STANDINGS[sel[d.id]===0?d.a:d.b][0],l=STANDINGS[sel[d.id]===0?d.b:d.a][0];return `<li><span><small>TIER ${d.tier} · </small><b>${clean(w)}</b></span><small>sobre ${clean(l)}</small></li>`}).join('');cm.classList.add('on');};
+$('#pksave').onclick=()=>{const me=$('#whosel').value;
+  if(!me){$('#who').classList.add('err');$('#whomsg').textContent='Primero escoge tu nombre arriba.';$('#who').scrollIntoView({behavior:'smooth',block:'center'});return;}
+  const v=VOTERS.find(x=>x.id===me);
+  $('#cl').innerHTML=`<li><span><small>VOTA · </small><b>${v.name}</b></span><small>${v.team}</small></li>`+DUELS.map(d=>{const w=STANDINGS[sel[d.id]===0?d.a:d.b][0],l=STANDINGS[sel[d.id]===0?d.b:d.a][0];return `<li><span><small>TIER ${d.tier} · </small><b>${clean(w)}</b></span><small>sobre ${clean(l)}</small></li>`}).join('');cm.classList.add('on');};
 $('#crev').onclick=()=>cm.classList.remove('on');
 cm.onclick=e=>{if(e.target===cm)cm.classList.remove('on')};
-$('#cok').onclick=async()=>{cm.classList.remove('on');saved=true;store.set(SAVED_KEY,'1');
-  DUELS.forEach(d=>{store.set('pk-'+d.id,String(sel[d.id]));VOTES[d.id]=VOTES[d.id]||{};VOTES[d.id]['o'+sel[d.id]]=(VOTES[d.id]['o'+sel[d.id]]||0)+1;});paintPk();
-  if(FIREBASE_URL){await Promise.all(DUELS.map(d=>fetch(`${FIREBASE_URL}/polls/${d.id}/o${sel[d.id]}.json`,{method:'PUT',body:JSON.stringify({".sv":{"increment":1}})}).catch(()=>{})));loadPk();}};
+$('#cok').onclick=async()=>{cm.classList.remove('on');const me=$('#whosel').value;
+  const p=DUELS.map(d=>sel[d.id]).join('');let ok=false;
+  try{const r=await fetch(`${FIREBASE_URL}/picks/${PICK_ID}/${me}.json`,{method:'PUT',body:JSON.stringify({p,t:{".sv":"timestamp"}})});ok=r.ok;}catch(e){}
+  if(!ok){$('#who').classList.add('err');$('#whomsg').textContent='Este manager ya votó esta semana (o no hay conexión). Si no fuiste tú, avísale a Luis por el buzón.';await loadPk();$('#who').scrollIntoView({behavior:'smooth',block:'center'});return;}
+  saved=true;ME=me;store.set(SAVED_KEY,'1');store.set(`pk-me-${PICK_ID}`,me);DUELS.forEach(d=>store.set('pk-'+d.id,String(sel[d.id])));
+  await loadPk();};
 loadPk();if(FIREBASE_URL)setInterval(loadPk,8000);
 // Resultados de la semana pasada
 if(LAST_PICKS.rows.length){const ok=LAST_PICKS.rows.filter(r=>(r[3]===0?r[2]:100-r[2])>=50).length;
